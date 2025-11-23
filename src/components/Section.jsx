@@ -19,13 +19,10 @@ const Section = ({ name, image, subheading }) => {
     // Overflow hidden to prevent overflow from image
     <section
       ref={sectionRef}
-      className="relative h-dvh flex flex-col items-center justify-center overflow-hidden"
+      className="relative min-h-svh flex flex-col items-center justify-center overflow-hidden"
     >
       {/* Image container, height slightly larger for parallax effect - image comes in faster, if bigger height not included -> white area */}
-      <motion.div
-        className="absolute w-full h-[120%] -z-10"
-        style={{ top: yBg }}
-      >
+      <motion.div className="absolute w-full h-[120%] -z-10" style={{ y: yBg }}>
         {/* Dark overlay for better text visibility */}
         <div className="absolute inset-0 bg-black/20"></div>
         <img className="w-full h-full object-cover" src={image} alt={name} />
