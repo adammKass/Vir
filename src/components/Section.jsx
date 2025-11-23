@@ -1,5 +1,6 @@
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion, useTransform } from "motion";
 import { useRef } from "react";
+import { scrollYProgress } from "../utils/scrollStore";
 
 // Section parallax effect, seperate image and text containers for parallax effect
 

@@ -3,6 +3,7 @@ import { heroSlides } from "./constants";
 import Section from "./components/Section";
 import { ReactLenis } from "lenis/react";
 import { useEffect, useRef } from "react";
+import { syncScroll } from "./scrollStore";
 
 function App() {
   // Implementing lenis for smooth scrolling
@@ -10,12 +11,32 @@ function App() {
 
   useEffect(() => {
     function update(time) {
-      lenisRef.current?.lenis?.raf(time);
+      const lenis = lenisRef.current?.lenis;
+
+      if (lenis) {
+        lenis.raf(time);
+      }
+
+      requestAnimationFrame(update);
     }
 
-    const rafId = requestAnimationFrame(update);
+    requestAnimationFrame(update);
+  }, []);
 
-    return () => cancelAnimationFrame(rafId);
+  // ⭐ Add scroll sync here
+  useEffect(() => {
+    const lenis = lenisRef.current?.lenis;
+    if (!lenis) return;
+
+    const handler = (e) => {
+      syncScroll(e);
+    };
+
+    lenis.on("scroll", handler);
+
+    return () => {
+      lenis.off("scroll", handler);
+    };
   }, []);
   return (
     <>
