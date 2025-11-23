@@ -25,6 +25,7 @@ function App() {
         // Snapping Container - not working beacuse of lenis
         /* <div className="h-dvh overflow-y-scroll snap-y snap-mandatory"> */
       }
+
       {/* <Hero /> */}
 
       {/* Passing text from constants.js to Section.jsx */}
