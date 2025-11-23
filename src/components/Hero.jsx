@@ -4,7 +4,7 @@ import heroSlideshow01 from "../assets/images/hero-slideshow-01.jpg";
 
 const Hero = () => {
   return (
-    <main className="relative min-h-svh flex flex-col justify-center">
+    <main className="relative min-h-lvh flex flex-col justify-center">
       {/* image container */}
       <div className="absolute inset-0 -z-10">
         {/* Dark overlay for better text visibility */}

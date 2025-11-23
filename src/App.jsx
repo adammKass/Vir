@@ -3,7 +3,7 @@ import { heroSlides } from "./constants";
 import Section from "./components/Section";
 import { ReactLenis } from "lenis/react";
 import { useEffect, useRef } from "react";
-import { syncScroll } from "./scrollStore";
+import { syncScroll } from "./utils/scrollStore";
 
 function App() {
   // Implementing lenis for smooth scrolling

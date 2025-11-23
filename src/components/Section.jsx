@@ -1,4 +1,4 @@
-import { motion, useTransform } from "motion";
+import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import { scrollYProgress } from "../utils/scrollStore";
 
@@ -20,7 +20,7 @@ const Section = ({ name, image, subheading }) => {
     // Overflow hidden to prevent overflow from image
     <section
       ref={sectionRef}
-      className="relative min-h-svh flex flex-col items-center justify-center overflow-hidden"
+      className="relative min-h-lvh flex flex-col items-center justify-center overflow-hidden"
     >
       {/* Image container, height slightly larger for parallax effect - image comes in faster, if bigger height not included -> white area */}
       <motion.div className="absolute w-full h-[120%] -z-10" style={{ y: yBg }}>
