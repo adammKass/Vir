@@ -4,7 +4,7 @@ import Section from "./components/Section";
 import { ReactLenis } from "lenis/react";
 import { useEffect, useRef } from "react";
 import { frame, cancelFrame } from "framer-motion";
-import "lenis/dist/lenis.css";
+// import "lenis/dist/lenis.css";
 
 function App() {
   const lenisRef = useRef(null);
@@ -28,6 +28,7 @@ function App() {
       {/* <Hero /> */}
 
       {/* Passing text from constants.js to Section.jsx */}
+
       {heroSlides.map((slide, index) => (
         <Section
           key={index}

@@ -18,7 +18,7 @@ const Section = ({ name, image, imageMobile, subheading }) => {
   const { scrollYProgress } = useScroll({
     target: localRef,
     offset: ["start end", "end start"],
-    smooth: 0.1,
+    // smooth: 0.1,
   });
 
   // Different values for text and image for parallax effect
@@ -39,7 +39,7 @@ const Section = ({ name, image, imageMobile, subheading }) => {
     // Overflow hidden to prevent overflow from image
     <section
       ref={localRef}
-      className="relative min-h-dvh flex flex-col items-center md:items-start justify-end overflow-hidden"
+      className="relative min-h-lvh flex flex-col items-center md:items-start justify-end overflow-hidden snap-start"
     >
       {/* Image container, height slightly larger for parallax effect - image comes in faster, if bigger height not included -> white area */}
       <motion.div
@@ -52,21 +52,23 @@ const Section = ({ name, image, imageMobile, subheading }) => {
       >
         {/* Dark overlay for better text visibility */}
         {/* <div className="absolute inset-0 bg-black/20"></div> */}
-        <img
-          src={image}
-          srcSet={`${imageMobile} 768w, ${image} 1200w`}
-          sizes="100vw"
-          className="w-full h-full object-cover"
-          loading="eager" // important for parallax
-          fetchPriority="high"
-          // Critical:
-          style={{
-            transform: "translateZ(0)",
-          }}
-          // Add this to prevent layout thrashing
-          width="100%"
-          height="100%"
-        />
+
+        <picture>
+          <source media="(max-width: 768px)" srcSet={imageMobile} />
+          <img
+            src={image}
+            className="w-full h-full object-cover"
+            loading="eager" // important for parallax
+            fetchPriority="high"
+            // Critical:
+            style={{
+              transform: "translateZ(0)",
+            }}
+            // Add this to prevent layout thrashing
+            width="100%"
+            height="100%"
+          />
+        </picture>
       </motion.div>
       {/* Text container */}
       <motion.div
