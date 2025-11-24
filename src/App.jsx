@@ -55,6 +55,7 @@ function App() {
           key={index}
           name={slide.name}
           image={slide.image}
+          imageMobile={slide.imageMobile}
           subheading={slide.subheading}
         />
       ))}

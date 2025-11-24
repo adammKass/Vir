@@ -26,31 +26,31 @@
 /* Font Import */
 
 @font-face {
-  font-family: Oswald;
+  font-family: Urbanist;
   font-style: normal;
   font-weight: 300 700;
-  src: url("/fonts/Oswald-VariableFont_wght.ttf") format("truetype");
+  src: url("/fonts/Urbanist-VariableFont.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: Quattrocento;
-  font-style: normal;
-  font-weight: 400;
-  src: url("/fonts/Quattrocento-Regular.ttf") format("truetype");
+  font-family: Urbanist;
+  font-style: italic;
+  font-weight: 300 700;
+  src: url("/fonts/Urbanist-Italic-VariableFont.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: Quattrocento;
+  font-family: Bodoni Moda;
   font-style: normal;
-  font-weight: 700;
-  src: url("/fonts/Quattrocento-Bold.ttf") format("truetype");
+  font-weight: 300 700;
+  src: url("/fonts/BodoniModa-VariableFont.ttf") format("truetype");
 }
 
 /* Declaring variables for Tailwind */
 
 @theme {
-  --font-sans: "Oswald", sans-serif;
-  --font-serif: "Quattrocento", serif;
+  --font-sans: "Urbanist", sans-serif;
+  --font-serif: "Bodoni Moda", serif;
   --color-primary: var(--color-primary);
   --color-secondary: var(--color-secondary);
   --color-accent: var(--color-accent);
@@ -62,7 +62,7 @@
 /* Default font to serif */
 
 body {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
 }
 
 /* Hiding scrollbar for all browsers */

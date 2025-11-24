@@ -1,9 +1,10 @@
 import { navlinks } from "../constants";
+import logo from "../assets/SVG/Logo.svg";
 
 const Navbar = () => {
   return (
     //Navbar from daisyUI, padding to zero, because content restraint and padding comes from content class
-    <div className="navbar fixed bg-white shadow-sm z-30 p-0">
+    <div className="navbar fixed backdrop-blur-2xl text-white shadow-sm z-30 p-0">
       <div className="content flex flex-row">
         <div className="navbar-start">
           <div className="dropdown">
@@ -38,13 +39,17 @@ const Navbar = () => {
             </ul>
           </div>
           {/* Logo */}
-          <a className="btn btn-ghost font-sans text-accent text-xl uppercase">
-            Coof
+          <a className="btn btn-ghost flex flex-row gap-4">
+            <img src={logo} alt="Logo" className="w-full h-full" />
+            <span className="font-sans font-bold text-xl text-white uppercase transition-colors duration-300 ease-in-out hover:text-black">
+              vIrignon
+            </span>
           </a>
         </div>
+
         {/* Navlinks in center */}
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
+          <ul className="menu menu-horizontal uppercase font-bold px-1">
             {navlinks.map((link) => (
               <li key={link.name}>
                 <a href={link.path}>{link.name}</a>
@@ -52,9 +57,28 @@ const Navbar = () => {
             ))}
           </ul>
         </div>
+
         {/* CTA button on the right */}
         <div className="navbar-end">
-          <a className="btn btn-accent">Contact Us</a>
+          <a
+            href="#"
+            className="btn btn-ghost relative -mt-1 group w-fit text-white uppercase font-bold  overflow-hidden transition-colors duration-300 ease-in-out hover:text-black "
+          >
+            <span className="flex items-center gap-2">
+              {/* TEXT */}
+              <span className="relative">
+                Contact Us
+                {/* Underline that slides out on hover */}
+                <span
+                  className="
+                    absolute left-0 right-0 bottom-0 h-0.5 bg-current
+                    transition-all duration-300
+                    group-hover:translate-x-full group-hover:opacity-0
+                  "
+                />
+              </span>
+            </span>
+          </a>
         </div>
       </div>
     </div>
