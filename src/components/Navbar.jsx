@@ -29,11 +29,13 @@ const Navbar = () => {
             {/* Dropdown menu for small screens */}
             <ul
               tabIndex="-1"
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content backdrop-blur-2xl rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               {navlinks.map((link) => (
-                <li key={link.name}>
-                  <a href={link.path}>{link.name}</a>
+                <li key={link.name} className="uppercase">
+                  <a href={link.path} className="text-xl">
+                    {link.name}
+                  </a>
                 </li>
               ))}
             </ul>
@@ -41,7 +43,7 @@ const Navbar = () => {
           {/* Logo */}
           <a className="btn btn-ghost flex flex-row gap-4">
             <img src={logo} alt="Logo" className="w-full h-full" />
-            <span className="font-sans font-bold text-xl text-white uppercase transition-colors duration-300 ease-in-out hover:text-black">
+            <span className="font-sans font-bold text-xl text-white uppercase transition-colors duration-300 ease-in-out hover:text-black hidden sm:inline-block">
               vIrignon
             </span>
           </a>
