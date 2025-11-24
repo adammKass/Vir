@@ -7,22 +7,22 @@ import { frame, cancelFrame } from "framer-motion";
 import "lenis/dist/lenis.css";
 
 function App() {
-  // const lenisRef = useRef(null);
+  const lenisRef = useRef(null);
 
-  // useEffect(() => {
-  //   function update(data) {
-  //     const time = data.timestamp;
-  //     lenisRef.current?.lenis?.raf(time);
-  //   }
+  useEffect(() => {
+    function update(data) {
+      const time = data.timestamp;
+      lenisRef.current?.lenis?.raf(time);
+    }
 
-  //   frame.update(update, true);
+    frame.update(update, true);
 
-  //   return () => cancelFrame(update);
-  // }, []);
+    return () => cancelFrame(update);
+  }, []);
 
   return (
     <>
-      {/* <ReactLenis root options={{ autoRaf: false }} ref={lenisRef} /> */}
+      <ReactLenis root options={{ autoRaf: false }} ref={lenisRef} />
       <Navbar></Navbar>
 
       {/* <Hero /> */}
